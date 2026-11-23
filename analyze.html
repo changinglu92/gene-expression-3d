@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<!-- build 20261123-t266 -->
+<!-- build 20261123-t268 -->
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -318,13 +318,15 @@ body.lyso-simple.hide-class #lessonSide.ls-min{top:auto;bottom:14px;right:12px}
 #think{position:fixed;left:auto;right:8px;top:56px;bottom:auto;transform:none;z-index:8;width:min(340px,calc(100% - 20px));max-height:min(36vh,300px);overflow:auto;background:rgba(255,255,255,.96);border:2px solid var(--acc);border-radius:16px;padding:8px 12px;box-shadow:0 12px 32px rgba(0,0,0,.2)}
 #think.dragged{transform:none;bottom:auto;right:auto}
 #think.think-min{width:auto;max-width:none;max-height:none;overflow:visible;padding:4px 6px;right:auto}
-#think.think-min .th-body,#think.think-min .th-draghint,#think.think-min #thMin{display:none}
+#think.think-min .th-body,#think.think-min .th-draghint,#think.think-min #thMin,#think.think-min .th-head .th-q{display:none}
 #think.think-min .th-head{margin:0;padding:4px 6px}
-#think .th-head{display:flex;align-items:center;gap:8px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;margin:0 0 8px;padding:2px 0 6px}
+#think .th-head{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;margin:0 0 8px;padding:2px 0 6px}
 #think .th-head:active{cursor:grabbing}
-#think .th-kicker{display:inline-block;background:var(--acc);color:#fff;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800;margin:0;pointer-events:none}
-#think .th-draghint{margin-left:auto;font-size:12px;color:var(--mut);font-weight:700;white-space:nowrap}
-#think .th-q{font-size:14px;font-weight:700;line-height:1.5;margin:0 0 8px}
+#think .th-kicker{display:inline-block;flex:0 0 auto;background:var(--acc);color:#fff;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:800;margin:0;pointer-events:none}
+#think .th-head .th-q{flex:1 1 12em;min-width:0;margin:0;padding:0;font-size:16px;font-weight:800;line-height:1.35;color:#1d2633;position:static;opacity:1;overflow:visible;overflow-wrap:anywhere}
+#think .th-draghint{margin-left:auto;font-size:12px;color:var(--mut);font-weight:700;white-space:nowrap;flex:0 0 auto}
+#think .th-head #thMin,#think .th-head #thClose{flex:0 0 auto}
+#think .th-q{font-size:14px;font-weight:700;line-height:1.5;margin:0 0 8px;color:#1d2633}
 #think .th-item{margin:8px 0}
 #think .th-item .prompt{font-size:13px;color:var(--mut);margin-bottom:4px}
 #think .th-opts{display:flex;flex-direction:column;gap:6px}
@@ -1065,6 +1067,9 @@ body.phone #legend .tx-gm-bar span{font-size:10px;padding:4px 2px;min-height:32p
 #btnProj{font-weight:800}
 #btnProj.on,body.proj-mode #btnProj{background:var(--pri);color:#fff;border-color:var(--pri);font-weight:800}
 body.proj-mode #think{width:min(740px,calc(100% - 28px));max-height:min(74vh,860px);padding:16px 22px;border-width:3px;border-radius:18px}
+body.proj-mode #think.exam-full{background:#fff}
+body.proj-mode #think.exam-full .th-head{background:#fff;padding:10px 0 14px}
+body.proj-mode #think .th-head .th-q{font-size:28px;line-height:1.35}
 body.proj-mode #think.think-fill,body.proj-mode #think.think-goal{width:min(820px,calc(100% - 28px));max-height:min(82vh,960px)}
 body.proj-mode #think.think-min{width:auto;max-width:none;max-height:none;padding:6px 10px}
 body.proj-mode #think .th-kicker{font-size:20px;padding:4px 12px}
@@ -1186,13 +1191,14 @@ body.phone-land.hide-foot #qCue{bottom:calc(16px + var(--sab))}
 
 
 /* —— 真题全屏卡 —— */
-#think.exam-full{left:calc(10px + var(--sal));right:calc(10px + var(--sar));top:calc(10px + var(--sat));bottom:calc(10px + var(--sab));transform:none;width:auto;max-width:none;max-height:none;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 20px 20px;z-index:16;box-shadow:0 16px 40px rgba(20,40,60,.28)}
+#think.exam-full{left:calc(10px + var(--sal));right:calc(10px + var(--sar));top:calc(10px + var(--sat));bottom:calc(10px + var(--sab));transform:none;width:auto;max-width:none;max-height:none;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 20px 20px;z-index:16;box-shadow:0 16px 40px rgba(20,40,60,.28);background:#fff}
 #think.exam-full.dragged{transform:none}
-#think.exam-full.think-min{width:auto;max-width:none;max-height:none;overflow:visible;padding:4px 8px;left:auto;right:auto;top:auto;bottom:auto;transform:none;z-index:16}
-#think.exam-full .th-head{position:sticky;top:0;background:rgba(255,255,255,.97);z-index:3;margin:0 0 10px;padding:6px 0 10px}
+#think.exam-full.think-min{width:auto;max-width:none;max-height:none;overflow:visible;padding:4px 8px;left:auto;right:auto;top:auto;bottom:auto;transform:none;z-index:16;background:rgba(255,255,255,.96)}
+#think.exam-full .th-head{position:sticky;top:0;background:#fff;z-index:3;margin:0 0 12px;padding:8px 0 12px;border-bottom:1px solid var(--line);align-items:center}
 #think.exam-full #thMin,#think.exam-full #thClose{min-height:44px;min-width:52px;font-weight:800;padding:6px 14px;pointer-events:auto;position:relative;z-index:4}
-#think.exam-full .th-q{font-size:24px;line-height:1.5;font-weight:800}
-#think.exam-full .th-lead{font-size:18px;line-height:1.55}
+#think.exam-full .th-head .th-q,#think.exam-full .th-q{font-size:22px;line-height:1.35;font-weight:800;color:#1d2633;margin:0;position:static;opacity:1}
+#think.exam-full .th-body{position:relative;z-index:1;clear:both}
+#think.exam-full .th-lead{font-size:18px;line-height:1.55;margin:0 0 10px;position:static;color:#2a3440}
 #think.exam-full .th-item .prompt,#think.exam-full.think-fill .th-item .prompt{font-size:20px;line-height:1.55;color:#1d2633;font-weight:700}
 #think.exam-full .th-opt{font-size:20px;padding:14px 18px;min-height:56px}
 #think.exam-full .th-fill{min-height:88px;font-size:20px;line-height:1.55;padding:12px 14px}
@@ -1304,14 +1310,14 @@ body.lyso-simple #think.exam-full.think-min{width:auto;max-width:none;max-height
 .ex-note{font-size:12px;color:var(--mut);margin:4px 0}
 .ex-cap{text-align:center;font-weight:800;margin:6px 0 0;font-size:14px}
 body.proj-mode #think.exam-full{left:calc(10px + var(--sal));right:calc(10px + var(--sar));top:calc(10px + var(--sat));bottom:calc(10px + var(--sab));width:auto;max-width:none;max-height:none;padding:18px 28px 28px}
-body.proj-mode #think.exam-full .th-q{font-size:36px}
+body.proj-mode #think.exam-full .th-q,body.proj-mode #think.exam-full .th-head .th-q{font-size:28px;line-height:1.35}
 body.proj-mode #think.exam-full .th-item .prompt,body.proj-mode #think.exam-full.think-fill .th-item .prompt{font-size:29px}
 body.proj-mode #think.exam-full .th-opt{font-size:28px;min-height:64px}
 body.proj-mode .ex-table{font-size:24px}
 body.proj-mode .ex-hebei-seq{font-size:30px}
 body.proj-mode .ex-cap,body.proj-mode .ex-legend,body.proj-mode .ex-note,body.proj-mode .ex-hebei-dir{font-size:22px}
 body.phone #think.exam-full,body.phone-land #think.exam-full{top:calc(6px + var(--sat));left:calc(6px + var(--sal));right:calc(6px + var(--sar));bottom:calc(6px + var(--sab));width:auto;max-width:none;max-height:none;transform:none;padding:10px 12px 16px}
-body.phone #think.exam-full .th-q,body.phone-land #think.exam-full .th-q{font-size:20px}
+body.phone #think.exam-full .th-q,body.phone-land #think.exam-full .th-q,body.phone #think.exam-full .th-head .th-q,body.phone-land #think.exam-full .th-head .th-q{font-size:18px;line-height:1.35}
 body.phone #think.exam-full .th-lead,body.phone-land #think.exam-full .th-lead{font-size:16px}
 body.phone #think.exam-full .th-item .prompt,body.phone #think.exam-full.think-fill .th-item .prompt,body.phone-land #think.exam-full .th-item .prompt,body.phone-land #think.exam-full.think-fill .th-item .prompt{font-size:18px}
 body.phone #think.exam-full .th-opt,body.phone-land #think.exam-full .th-opt{font-size:18px;min-height:52px;padding:12px 14px}
