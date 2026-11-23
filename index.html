@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<!-- build 20261123-t278 -->
+<!-- build 20261123-t280 -->
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -1050,22 +1050,52 @@ body.phone #tlStepReview{gap:5px}
 body.phone #tlStepReview .tx-step.tl-past{padding:5px 8px}
 
 
-/* —— 原核 / 真核基因结构示意图 —— */
-#legend.lg-gene{width:min(300px,calc(100% - 24px))}
-#legend .tx-gene-map{display:flex;flex-direction:column;gap:6px}
+/* —— 原核 / 真核基因结构示意图：启动子、终止子画在非编码区内 —— */
+#legend.lg-gene{width:min(360px,calc(100% - 24px))}
+#legend .tx-gene-map{display:flex;flex-direction:column;gap:7px}
 #legend .tx-gm-row{margin:0}
-#legend .tx-gm-lab{display:block;font-weight:800;font-size:12px;margin:0 0 3px;color:#1d2633}
-#legend .tx-gm-bar{display:flex;flex-wrap:nowrap;align-items:stretch;gap:2px;width:100%;overflow:hidden;border-radius:8px}
-#legend .tx-gm-bar span{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;line-height:1.2;font-weight:800;padding:4px 2px;min-height:32px}
-#legend .tx-gm-bar .nc{flex:1.1;background:#eef2f6;color:#44515f}
-#legend .tx-gm-bar .pro{flex:1.4;background:#f7c4d4;color:#6a2040}
-#legend .tx-gm-bar .cds{flex:1.6;background:#cfe4fb;color:#16325c}
-#legend .tx-gm-bar .term{flex:1.1;background:#f5d6a8;color:#6a3d0c}
+#legend .tx-gm-lab{display:block;font-weight:800;font-size:12.5px;margin:0 0 3px;color:#1d2633}
+#legend .tx-gm-ends{display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#5a6a7a;line-height:1;margin:0 1px -2px}
+#legend .tx-gm-bar{display:flex;flex-wrap:nowrap;align-items:stretch;gap:4px;width:100%}
+#legend .tx-gm-nc,#legend .tx-gm-cds{display:flex;flex-direction:column;min-width:0;border-radius:8px;padding:2px 3px 3px;box-sizing:border-box}
+#legend .tx-gm-nc{flex:1.35;background:#e8edf3;border:1.5px solid #b7c3d0}
+#legend .tx-gm-cds{flex:2.15;background:#e7f1fb;border:1.5px solid #9abde0}
+#legend .tx-gm-nc-cap,#legend .tx-gm-cds-cap{display:block;text-align:center;font-size:11px;font-weight:800;line-height:1.2;padding:1px 0 2px;color:#44515f}
+#legend .tx-gm-cds-cap{color:#16325c}
+#legend .tx-gm-nc-inner,#legend .tx-gm-cds-inner{display:flex;align-items:stretch;gap:2px;flex:1;min-width:0;min-height:34px}
+#legend .tx-gm-nc-inner .flank{flex:.55;min-width:8px;background:repeating-linear-gradient(-45deg,#d5dde6,#d5dde6 4px,#e8edf3 4px,#e8edf3 8px);border-radius:4px}
+#legend .tx-gm-bar .pro,#legend .tx-gm-bar .term,#legend .tx-gm-bar .cds,#legend .tx-gm-bar .ex,#legend .tx-gm-bar .in{display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.2;font-weight:800;padding:4px 3px;min-height:34px;border-radius:5px;box-sizing:border-box}
+#legend .tx-gm-bar .pro{flex:1.8;flex-direction:column;gap:1px;background:#f7c4d4;color:#6a2040}
+#legend .tx-gm-bar .pro small{font-size:9.5px;font-weight:700;line-height:1.15;opacity:.95}
+#legend .tx-gm-bar .term{flex:1.6;background:#f5d6a8;color:#6a3d0c}
+#legend .tx-gm-bar > .cds{flex:1.25;background:#cfe4fb;color:#16325c;border-radius:8px;align-self:stretch}
 #legend .tx-gm-bar .ex{flex:1;background:#cfe4fb;color:#16325c}
-#legend .tx-gm-bar .in{flex:.75;background:#efe6c8;color:#5a4a18;font-weight:700}
-#legend .tx-gm-note{font-size:11.5px;color:var(--mut);margin:3px 0 0;line-height:1.4;font-weight:700}
-body.phone #legend.lg-gene{width:min(100vw - 16px,300px)}
-body.phone #legend .tx-gm-bar span{font-size:10px;padding:4px 2px;min-height:32px}
+#legend .tx-gm-bar .in{flex:.72;background:#efe6c8;color:#5a4a18;font-weight:700}
+#legend .tx-gm-note{font-size:12px;color:#3a4654;margin:2px 0 0;line-height:1.45;font-weight:700}
+#legend .tx-gm-strands{margin-top:2px;padding-top:6px;border-top:1px solid var(--line)}
+#legend .tx-gm-strand-bar{display:flex;align-items:center;gap:6px;margin:0 0 3px;border-radius:6px;min-height:26px;padding:3px 7px;font-size:11.5px;font-weight:800;line-height:1.25;box-sizing:border-box}
+#legend .tx-gm-strand-bar.coding{background:#e7f4ea;color:#1e5a32;border:1.5px solid #9dcca8}
+#legend .tx-gm-strand-bar.tpl{background:#ece8f8;color:#3d2f6b;border:1.5px solid #b5a8d8}
+#legend .tx-gm-strand-bar .end{flex:0 0 auto;opacity:.85}
+#legend .tx-gm-strand-bar .lab{flex:1;text-align:center}
+body.phone #legend.lg-gene{width:min(100vw - 16px,360px)}
+body.phone #legend .tx-gm-lab{font-size:12.5px}
+body.phone #legend .tx-gm-nc-cap,body.phone #legend .tx-gm-cds-cap,body.phone #legend .tx-gm-ends{font-size:11px}
+body.phone #legend .tx-gm-bar .pro,body.phone #legend .tx-gm-bar .term,body.phone #legend .tx-gm-bar .cds,body.phone #legend .tx-gm-bar .ex,body.phone #legend .tx-gm-bar .in{font-size:11px;padding:4px 2px;min-height:34px}
+body.phone #legend .tx-gm-bar .pro small{font-size:9.5px}
+body.phone #legend .tx-gm-note,body.phone #legend .tx-gm-strand-bar{font-size:12px}
+body.proj-mode #legend.lg-gene{width:min(560px,calc(100% - 40px));padding:10px 12px 12px}
+body.proj-mode #legend.lg-gene b{font-size:22px}
+body.proj-mode #legend.lg-gene .th-draghint,body.proj-mode #legend.lg-gene #lgMin{font-size:16px}
+body.proj-mode #legend .tx-gm-lab{font-size:18px;margin:0 0 5px}
+body.proj-mode #legend .tx-gm-ends{font-size:16px;margin:0 2px -2px}
+body.proj-mode #legend .tx-gm-nc-cap,body.proj-mode #legend .tx-gm-cds-cap{font-size:16px;padding:2px 0 3px}
+body.proj-mode #legend .tx-gm-nc-inner,body.proj-mode #legend .tx-gm-cds-inner{min-height:48px;gap:3px}
+body.proj-mode #legend .tx-gm-bar .pro,body.proj-mode #legend .tx-gm-bar .term,body.proj-mode #legend .tx-gm-bar .cds,body.proj-mode #legend .tx-gm-bar .ex,body.proj-mode #legend .tx-gm-bar .in{font-size:16px;line-height:1.25;padding:6px 6px;min-height:48px}
+body.proj-mode #legend .tx-gm-bar .pro small{font-size:13px}
+body.proj-mode #legend .tx-gm-note{font-size:18px;line-height:1.45;margin-top:6px}
+body.proj-mode #legend .tx-gm-strand-bar{font-size:17px;min-height:40px;padding:6px 10px;margin:0 0 5px}
+body.phone.proj-mode #legend.lg-gene{width:min(100vw - 16px,560px)}
 
 /* —— 投影放大（默认关，不改变平板字号；仅 body.proj-mode 生效） —— */
 #btnProj{font-weight:800}
@@ -6317,30 +6347,63 @@ body.proj-mode #think .th-photo-submit,body.proj-mode #think.exam-full .th-photo
     <div class="cb-nav"><button id="subPrev">上一</button><button id="subNext" class="pri">下一</button></div>
     ${i?'<div class="cb-extra"><button id="pairPrev">上一对</button><button id="pairNext">下一对</button></div>':""}
     ${s?`<div class="cb-contrast"><span>正误对照</span><button class="tog${E.contrast?" on":""}" id="tContrast"><i></i></button></div>`:""}
-    <button type="button" class="ghost left-close" id="btnHideClass" title="隐藏课堂分步，把画面让出来">关闭</button>`,n.querySelectorAll(".schip").forEach(o=>o.onclick=()=>Ys(+o.dataset.sub)),_t("#subPrev").onclick=()=>Ys(E.sub-1),_t("#subNext").onclick=()=>{let o=t.subs[E.sub+1];if(t.kind==="tl"&&(!o||o.hideChip||o.id==="B6")){iv(!1);return}if(!o&&t.kind==="poly"){oi(Of,!1);return}Ys(E.sub+1)},_t("#btnHideClass")?.addEventListener("click",()=>Zs(!1)),i&&(_t("#pairPrev").onclick=()=>Ax(-1),_t("#pairNext").onclick=()=>Ax(1)),s&&(_t("#tContrast").onclick=()=>Kf())}function o2(n){let t=!!(n&&n.kind==="sec");document.body.classList.toggle("sec-view",t);let e=_t("#secTitle");e&&(e.hidden=!t)}function As(){let n=_t("#caption"),t=E.lesson;o2(t),n.hidden=!0,n.textContent="",Cl()}var Ji=!1;function Cl(){let n=_t("#lessonSide");if(!n)return;let t=E.lesson,e=t&&t.subs?t.subs[E.sub]:null,i=!!(t&&t.kind==="repl"&&e&&(e.id==="CD"||e.id==="C4"));if(!!!(t&&(t.kind==="lyso"||i))){let p=document.body.classList.contains("lyso-side")||document.body.classList.contains("lesson-side");n.hidden=!0,n.classList.remove("show","ls-min"),n.innerHTML="",document.body.classList.remove("lyso-side","lesson-side"),p&&queueMicrotask(()=>$e());return}let r=!document.body.classList.contains("lesson-side");document.body.classList.add("lesson-side"),t.kind==="lyso"?document.body.classList.add("lyso-side"):document.body.classList.remove("lyso-side"),n.hidden=!1,n.classList.add("show"),n.classList.toggle("ls-min",Ji);let o=E.thinkWait&&!E.thinkOpen,a=E.contrast&&e.captionContrast?e.captionContrast:e.caption||"",l=t.kind==="lyso"&&(E.sub>=1||E.contrast)?'<div class="ls-ph">最适 pH \u2248 4.6</div>':"",h=t.kind==="lyso"?`<div class="ls-abn"><button type="button" id="btnAbn" class="${E.contrast?"on":""}">${E.contrast?"关闭异常蛋白模型":"异常蛋白模型"}</button></div>`:"";if(Ji)n.innerHTML='<div class="ls-head"><h3 class="ls-min-title">讲解</h3><button type="button" id="lsMin" class="ghost left-close">展开</button></div>';else{let p=t.kind==="lyso"?"溶酶体与 TMEM175 蛋白":"中心法则";n.innerHTML=`<div class="ls-head"><p class="ls-kicker">${p}</p><button type="button" id="lsMin" class="ghost left-close">收起</button></div><h3>${e.name}</h3>${l}${h}<p class="ls-body">${o?"请先观察画面，问题稍后出现":a}</p>`}let u=_t("#lsMin");u&&(u.onclick=()=>{Ji=!Ji,Cl()});let d=_t("#btnAbn");d&&(d.onclick=()=>Kf()),r&&queueMicrotask(()=>$e())}function $x(){let n=_t("#banner"),t=E.lesson;if(!t||!t.banner){n.hidden=!0;return}if(t.bannerOn&&!t.bannerOn(E.sub)&&!E.contrast){n.hidden=!0;return}n.hidden=!1,n.textContent=t.banner,n.classList.toggle("on",!!(t.bannerOn&&t.bannerOn(E.sub))||E.contrast)}var Ei=null,jf=!1,si=!1,Bf="";function Wx(){if(Bf==="gene"){let o=Math.min(300,innerWidth-24),a=si?40:190,l=document.body.classList.contains("hide-foot")?20:86,c=document.body.classList.contains("hide-class")?20:86,h=document.body.classList.contains("xuean-on")?du:Dr,u=innerWidth>900&&Qs()&&h&&!h.hidden?Math.round(h.getBoundingClientRect().right+8):12;return{left:Math.min(u,Math.max(8,innerWidth-o-16)),top:Math.max(80,innerHeight-l-c-a-12)}}let n=220,t=si?40:170,e=document.body.classList.contains("hide-foot")?20:86,i=document.body.classList.contains("hide-class")?20:86,s=_t("#lessonSide"),r=(document.body.classList.contains("lyso-side")||document.body.classList.contains("lesson-side"))&&s&&!s.hidden&&s.classList.contains("show")&&!s.classList.contains("ls-min")?s.getBoundingClientRect().width+16:0;return document.body.classList.contains("sec-view")?{left:12,top:Math.max(150,document.body.classList.contains("hide-top")?72:168)}:{left:Math.max(8,innerWidth-n-16-r),top:Math.max(80,innerHeight-e-i-t-12)}}function js(){let n=_t("#legend");if(!n||n.hidden)return;n.classList.toggle("lg-min",!!si),Ei||(Ei=Wx());let t=Math.max(8,innerWidth-n.offsetWidth-8),e=Math.max(8,innerHeight-Math.min(n.offsetHeight,innerHeight-16)-8);Ei.left=Math.max(8,Math.min(t,Ei.left)),Ei.top=Math.max(8,Math.min(e,Ei.top)),n.classList.add("dragged"),n.style.left=Ei.left+"px",n.style.top=Ei.top+"px",n.style.right="auto",n.style.bottom="auto",n.style.transform="none"}var Jh=!1;function a2(){let n=_t("#legend");!n||n.dataset.dragBound||(n.dataset.dragBound="1",n.addEventListener("pointerdown",t=>{if(t.button!=null&&t.button!==0||t.target.closest("#lgMin"))return;let e=n.getBoundingClientRect(),i=t.clientX,s=t.clientY,r=e.left,o=e.top,a=!1,l=5;n.setPointerCapture?.(t.pointerId);let c=u=>{let d=u.clientX-i,p=u.clientY-s;!a&&d*d+p*p<l*l||(a=!0,Ei={left:r+u.clientX-i,top:o+u.clientY-s},jf=!0,js())},h=()=>{if(n.removeEventListener("pointermove",c),n.removeEventListener("pointerup",h),n.removeEventListener("pointercancel",h),a){Jh=!0;return}if(si){si=!1,n.classList.remove("lg-min");let u=_t("#lgMin");u&&(u.textContent="收起"),js(),Jh=!0}};n.addEventListener("pointermove",c),n.addEventListener("pointerup",h),n.addEventListener("pointercancel",h),t.preventDefault(),t.stopPropagation()}))}function l2(){let n=E.lesson,t=n&&n.subs[E.sub],e=E.thinkOpen&&E.think||null,i=e&&e.legend||t&&t.legend||null;return{L:n,sub:t,legend:i}}function c2(){return document.body.classList.contains("xuean-on")&&Qs()}function ta(){let n=_t("#legend"),{L:t,sub:e,legend:i}=l2();if(!i||c2()){n.hidden=!0,i||n.classList.remove("lg-gene");return}n.hidden=!1;let s=i==="gene"?"gene":t&&t.kind==="lyso"?"lyso":t&&t.kind==="sec"?"sec":"bond";n.classList.toggle("lg-gene",s==="gene");let r=s==="gene"?`<div class="tx-gene-map">
+    <button type="button" class="ghost left-close" id="btnHideClass" title="隐藏课堂分步，把画面让出来">关闭</button>`,n.querySelectorAll(".schip").forEach(o=>o.onclick=()=>Ys(+o.dataset.sub)),_t("#subPrev").onclick=()=>Ys(E.sub-1),_t("#subNext").onclick=()=>{let o=t.subs[E.sub+1];if(t.kind==="tl"&&(!o||o.hideChip||o.id==="B6")){iv(!1);return}if(!o&&t.kind==="poly"){oi(Of,!1);return}Ys(E.sub+1)},_t("#btnHideClass")?.addEventListener("click",()=>Zs(!1)),i&&(_t("#pairPrev").onclick=()=>Ax(-1),_t("#pairNext").onclick=()=>Ax(1)),s&&(_t("#tContrast").onclick=()=>Kf())}function o2(n){let t=!!(n&&n.kind==="sec");document.body.classList.toggle("sec-view",t);let e=_t("#secTitle");e&&(e.hidden=!t)}function As(){let n=_t("#caption"),t=E.lesson;o2(t),n.hidden=!0,n.textContent="",Cl()}var Ji=!1;function Cl(){let n=_t("#lessonSide");if(!n)return;let t=E.lesson,e=t&&t.subs?t.subs[E.sub]:null,i=!!(t&&t.kind==="repl"&&e&&(e.id==="CD"||e.id==="C4"));if(!!!(t&&(t.kind==="lyso"||i))){let p=document.body.classList.contains("lyso-side")||document.body.classList.contains("lesson-side");n.hidden=!0,n.classList.remove("show","ls-min"),n.innerHTML="",document.body.classList.remove("lyso-side","lesson-side"),p&&queueMicrotask(()=>$e());return}let r=!document.body.classList.contains("lesson-side");document.body.classList.add("lesson-side"),t.kind==="lyso"?document.body.classList.add("lyso-side"):document.body.classList.remove("lyso-side"),n.hidden=!1,n.classList.add("show"),n.classList.toggle("ls-min",Ji);let o=E.thinkWait&&!E.thinkOpen,a=E.contrast&&e.captionContrast?e.captionContrast:e.caption||"",l=t.kind==="lyso"&&(E.sub>=1||E.contrast)?'<div class="ls-ph">最适 pH \u2248 4.6</div>':"",h=t.kind==="lyso"?`<div class="ls-abn"><button type="button" id="btnAbn" class="${E.contrast?"on":""}">${E.contrast?"关闭异常蛋白模型":"异常蛋白模型"}</button></div>`:"";if(Ji)n.innerHTML='<div class="ls-head"><h3 class="ls-min-title">讲解</h3><button type="button" id="lsMin" class="ghost left-close">展开</button></div>';else{let p=t.kind==="lyso"?"溶酶体与 TMEM175 蛋白":"中心法则";n.innerHTML=`<div class="ls-head"><p class="ls-kicker">${p}</p><button type="button" id="lsMin" class="ghost left-close">收起</button></div><h3>${e.name}</h3>${l}${h}<p class="ls-body">${o?"请先观察画面，问题稍后出现":a}</p>`}let u=_t("#lsMin");u&&(u.onclick=()=>{Ji=!Ji,Cl()});let d=_t("#btnAbn");d&&(d.onclick=()=>Kf()),r&&queueMicrotask(()=>$e())}function $x(){let n=_t("#banner"),t=E.lesson;if(!t||!t.banner){n.hidden=!0;return}if(t.bannerOn&&!t.bannerOn(E.sub)&&!E.contrast){n.hidden=!0;return}n.hidden=!1,n.textContent=t.banner,n.classList.toggle("on",!!(t.bannerOn&&t.bannerOn(E.sub))||E.contrast)}var Ei=null,jf=!1,si=!1,Bf="";function Wx(){if(Bf==="gene"){let o=Math.min(360,innerWidth-24),a=si?40:340,l=document.body.classList.contains("hide-foot")?20:86,c=document.body.classList.contains("hide-class")?20:86,h=document.body.classList.contains("xuean-on")?du:Dr,u=innerWidth>900&&Qs()&&h&&!h.hidden?Math.round(h.getBoundingClientRect().right+8):12;return{left:Math.min(u,Math.max(8,innerWidth-o-16)),top:Math.max(80,innerHeight-l-c-a-12)}}let n=220,t=si?40:170,e=document.body.classList.contains("hide-foot")?20:86,i=document.body.classList.contains("hide-class")?20:86,s=_t("#lessonSide"),r=(document.body.classList.contains("lyso-side")||document.body.classList.contains("lesson-side"))&&s&&!s.hidden&&s.classList.contains("show")&&!s.classList.contains("ls-min")?s.getBoundingClientRect().width+16:0;return document.body.classList.contains("sec-view")?{left:12,top:Math.max(150,document.body.classList.contains("hide-top")?72:168)}:{left:Math.max(8,innerWidth-n-16-r),top:Math.max(80,innerHeight-e-i-t-12)}}function js(){let n=_t("#legend");if(!n||n.hidden)return;n.classList.toggle("lg-min",!!si),Ei||(Ei=Wx());let t=Math.max(8,innerWidth-n.offsetWidth-8),e=Math.max(8,innerHeight-Math.min(n.offsetHeight,innerHeight-16)-8);Ei.left=Math.max(8,Math.min(t,Ei.left)),Ei.top=Math.max(8,Math.min(e,Ei.top)),n.classList.add("dragged"),n.style.left=Ei.left+"px",n.style.top=Ei.top+"px",n.style.right="auto",n.style.bottom="auto",n.style.transform="none"}var Jh=!1;function a2(){let n=_t("#legend");!n||n.dataset.dragBound||(n.dataset.dragBound="1",n.addEventListener("pointerdown",t=>{if(t.button!=null&&t.button!==0||t.target.closest("#lgMin"))return;let e=n.getBoundingClientRect(),i=t.clientX,s=t.clientY,r=e.left,o=e.top,a=!1,l=5;n.setPointerCapture?.(t.pointerId);let c=u=>{let d=u.clientX-i,p=u.clientY-s;!a&&d*d+p*p<l*l||(a=!0,Ei={left:r+u.clientX-i,top:o+u.clientY-s},jf=!0,js())},h=()=>{if(n.removeEventListener("pointermove",c),n.removeEventListener("pointerup",h),n.removeEventListener("pointercancel",h),a){Jh=!0;return}if(si){si=!1,n.classList.remove("lg-min");let u=_t("#lgMin");u&&(u.textContent="收起"),js(),Jh=!0}};n.addEventListener("pointermove",c),n.addEventListener("pointerup",h),n.addEventListener("pointercancel",h),t.preventDefault(),t.stopPropagation()}))}function l2(){let n=E.lesson,t=n&&n.subs[E.sub],e=E.thinkOpen&&E.think||null,i=e&&e.legend||t&&t.legend||null;return{L:n,sub:t,legend:i}}function c2(){return document.body.classList.contains("xuean-on")&&Qs()}function ta(){let n=_t("#legend"),{L:t,sub:e,legend:i}=l2();if(!i||c2()){n.hidden=!0,i||n.classList.remove("lg-gene");return}n.hidden=!1;let s=i==="gene"?"gene":t&&t.kind==="lyso"?"lyso":t&&t.kind==="sec"?"sec":"bond";n.classList.toggle("lg-gene",s==="gene");let r=s==="gene"?`<div class="tx-gene-map">
+        <div class="tx-gm-ends" aria-hidden="true"><span>5′</span><span>3′</span></div>
         <div class="tx-gm-row">
           <span class="tx-gm-lab">原核生物基因</span>
           <div class="tx-gm-bar">
-            <span class="nc">非编码区</span>
-            <span class="pro">启动子<br><small>RNA 聚合酶结合位点</small></span>
+            <div class="tx-gm-nc up">
+              <span class="tx-gm-nc-cap">非编码区</span>
+              <div class="tx-gm-nc-inner">
+                <span class="flank" aria-hidden="true"></span>
+                <span class="pro">启动子<small>RNA 聚合酶结合位点</small></span>
+              </div>
+            </div>
             <span class="cds">编码区</span>
-            <span class="term">终止子</span>
-            <span class="nc">非编码区</span>
+            <div class="tx-gm-nc down">
+              <span class="tx-gm-nc-cap">非编码区</span>
+              <div class="tx-gm-nc-inner">
+                <span class="term">终止子</span>
+                <span class="flank" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="tx-gm-row">
           <span class="tx-gm-lab">真核生物基因</span>
           <div class="tx-gm-bar euk">
-            <span class="nc">非编码区</span>
-            <span class="pro">启动子</span>
-            <span class="ex">外显子</span>
-            <span class="in">内含子</span>
-            <span class="ex">外显子</span>
-            <span class="in">内含子</span>
-            <span class="ex">外显子</span>
-            <span class="term">终止子</span>
+            <div class="tx-gm-nc up">
+              <span class="tx-gm-nc-cap">非编码区</span>
+              <div class="tx-gm-nc-inner">
+                <span class="flank" aria-hidden="true"></span>
+                <span class="pro">启动子</span>
+              </div>
+            </div>
+            <div class="tx-gm-cds">
+              <span class="tx-gm-cds-cap">编码区</span>
+              <div class="tx-gm-cds-inner">
+                <span class="ex">外显子</span>
+                <span class="in">内含子</span>
+                <span class="ex">外显子</span>
+                <span class="in">内含子</span>
+                <span class="ex">外显子</span>
+              </div>
+            </div>
+            <div class="tx-gm-nc down">
+              <span class="tx-gm-nc-cap">非编码区</span>
+              <div class="tx-gm-nc-inner">
+                <span class="term">终止子</span>
+                <span class="flank" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
-          <div class="tx-gm-note">编码区由外显子、内含子相间排列</div>
+        </div>
+        <div class="tx-gm-note">启动子、终止子位于基因两端的非编码区内。真核基因编码区由外显子、内含子相间排列。</div>
+        <div class="tx-gm-strands">
+          <span class="tx-gm-lab">DNA 双链</span>
+          <div class="tx-gm-strand-bar coding"><span class="end">5′</span><span class="lab">编码链（有义链）</span><span class="end">3′</span></div>
+          <div class="tx-gm-strand-bar tpl"><span class="end">3′</span><span class="lab">模板链（反义链）</span><span class="end">5′</span></div>
+          <div class="tx-gm-note">RNA 聚合酶以模板链（反义链）为模板转录；编码链（有义链）序列与 mRNA 相同（T/U 互换）。</div>
         </div>
       </div>`:s==="lyso"?`<div class="lg"><i class="swatch ch-ok"></i>正常 TMEM175（H＋ 泄漏通道）</div>
        <div class="lg"><i class="swatch ch-bad"></i>异常 TMEM175（泄漏受阻）</div>

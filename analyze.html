@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<!-- build 20261123-t278 -->
+<!-- build 20261123-t280 -->
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -1049,22 +1049,52 @@ body.phone #tlStepReview{gap:5px}
 body.phone #tlStepReview .tx-step.tl-past{padding:5px 8px}
 
 
-/* —— 原核 / 真核基因结构示意图 —— */
-#legend.lg-gene{width:min(300px,calc(100% - 24px))}
-#legend .tx-gene-map{display:flex;flex-direction:column;gap:6px}
+/* —— 原核 / 真核基因结构示意图：启动子、终止子画在非编码区内 —— */
+#legend.lg-gene{width:min(360px,calc(100% - 24px))}
+#legend .tx-gene-map{display:flex;flex-direction:column;gap:7px}
 #legend .tx-gm-row{margin:0}
-#legend .tx-gm-lab{display:block;font-weight:800;font-size:12px;margin:0 0 3px;color:#1d2633}
-#legend .tx-gm-bar{display:flex;flex-wrap:nowrap;align-items:stretch;gap:2px;width:100%;overflow:hidden;border-radius:8px}
-#legend .tx-gm-bar span{display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;line-height:1.2;font-weight:800;padding:4px 2px;min-height:32px}
-#legend .tx-gm-bar .nc{flex:1.1;background:#eef2f6;color:#44515f}
-#legend .tx-gm-bar .pro{flex:1.4;background:#f7c4d4;color:#6a2040}
-#legend .tx-gm-bar .cds{flex:1.6;background:#cfe4fb;color:#16325c}
-#legend .tx-gm-bar .term{flex:1.1;background:#f5d6a8;color:#6a3d0c}
+#legend .tx-gm-lab{display:block;font-weight:800;font-size:12.5px;margin:0 0 3px;color:#1d2633}
+#legend .tx-gm-ends{display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#5a6a7a;line-height:1;margin:0 1px -2px}
+#legend .tx-gm-bar{display:flex;flex-wrap:nowrap;align-items:stretch;gap:4px;width:100%}
+#legend .tx-gm-nc,#legend .tx-gm-cds{display:flex;flex-direction:column;min-width:0;border-radius:8px;padding:2px 3px 3px;box-sizing:border-box}
+#legend .tx-gm-nc{flex:1.35;background:#e8edf3;border:1.5px solid #b7c3d0}
+#legend .tx-gm-cds{flex:2.15;background:#e7f1fb;border:1.5px solid #9abde0}
+#legend .tx-gm-nc-cap,#legend .tx-gm-cds-cap{display:block;text-align:center;font-size:11px;font-weight:800;line-height:1.2;padding:1px 0 2px;color:#44515f}
+#legend .tx-gm-cds-cap{color:#16325c}
+#legend .tx-gm-nc-inner,#legend .tx-gm-cds-inner{display:flex;align-items:stretch;gap:2px;flex:1;min-width:0;min-height:34px}
+#legend .tx-gm-nc-inner .flank{flex:.55;min-width:8px;background:repeating-linear-gradient(-45deg,#d5dde6,#d5dde6 4px,#e8edf3 4px,#e8edf3 8px);border-radius:4px}
+#legend .tx-gm-bar .pro,#legend .tx-gm-bar .term,#legend .tx-gm-bar .cds,#legend .tx-gm-bar .ex,#legend .tx-gm-bar .in{display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.2;font-weight:800;padding:4px 3px;min-height:34px;border-radius:5px;box-sizing:border-box}
+#legend .tx-gm-bar .pro{flex:1.8;flex-direction:column;gap:1px;background:#f7c4d4;color:#6a2040}
+#legend .tx-gm-bar .pro small{font-size:9.5px;font-weight:700;line-height:1.15;opacity:.95}
+#legend .tx-gm-bar .term{flex:1.6;background:#f5d6a8;color:#6a3d0c}
+#legend .tx-gm-bar > .cds{flex:1.25;background:#cfe4fb;color:#16325c;border-radius:8px;align-self:stretch}
 #legend .tx-gm-bar .ex{flex:1;background:#cfe4fb;color:#16325c}
-#legend .tx-gm-bar .in{flex:.75;background:#efe6c8;color:#5a4a18;font-weight:700}
-#legend .tx-gm-note{font-size:11.5px;color:var(--mut);margin:3px 0 0;line-height:1.4;font-weight:700}
-body.phone #legend.lg-gene{width:min(100vw - 16px,300px)}
-body.phone #legend .tx-gm-bar span{font-size:10px;padding:4px 2px;min-height:32px}
+#legend .tx-gm-bar .in{flex:.72;background:#efe6c8;color:#5a4a18;font-weight:700}
+#legend .tx-gm-note{font-size:12px;color:#3a4654;margin:2px 0 0;line-height:1.45;font-weight:700}
+#legend .tx-gm-strands{margin-top:2px;padding-top:6px;border-top:1px solid var(--line)}
+#legend .tx-gm-strand-bar{display:flex;align-items:center;gap:6px;margin:0 0 3px;border-radius:6px;min-height:26px;padding:3px 7px;font-size:11.5px;font-weight:800;line-height:1.25;box-sizing:border-box}
+#legend .tx-gm-strand-bar.coding{background:#e7f4ea;color:#1e5a32;border:1.5px solid #9dcca8}
+#legend .tx-gm-strand-bar.tpl{background:#ece8f8;color:#3d2f6b;border:1.5px solid #b5a8d8}
+#legend .tx-gm-strand-bar .end{flex:0 0 auto;opacity:.85}
+#legend .tx-gm-strand-bar .lab{flex:1;text-align:center}
+body.phone #legend.lg-gene{width:min(100vw - 16px,360px)}
+body.phone #legend .tx-gm-lab{font-size:12.5px}
+body.phone #legend .tx-gm-nc-cap,body.phone #legend .tx-gm-cds-cap,body.phone #legend .tx-gm-ends{font-size:11px}
+body.phone #legend .tx-gm-bar .pro,body.phone #legend .tx-gm-bar .term,body.phone #legend .tx-gm-bar .cds,body.phone #legend .tx-gm-bar .ex,body.phone #legend .tx-gm-bar .in{font-size:11px;padding:4px 2px;min-height:34px}
+body.phone #legend .tx-gm-bar .pro small{font-size:9.5px}
+body.phone #legend .tx-gm-note,body.phone #legend .tx-gm-strand-bar{font-size:12px}
+body.proj-mode #legend.lg-gene{width:min(560px,calc(100% - 40px));padding:10px 12px 12px}
+body.proj-mode #legend.lg-gene b{font-size:22px}
+body.proj-mode #legend.lg-gene .th-draghint,body.proj-mode #legend.lg-gene #lgMin{font-size:16px}
+body.proj-mode #legend .tx-gm-lab{font-size:18px;margin:0 0 5px}
+body.proj-mode #legend .tx-gm-ends{font-size:16px;margin:0 2px -2px}
+body.proj-mode #legend .tx-gm-nc-cap,body.proj-mode #legend .tx-gm-cds-cap{font-size:16px;padding:2px 0 3px}
+body.proj-mode #legend .tx-gm-nc-inner,body.proj-mode #legend .tx-gm-cds-inner{min-height:48px;gap:3px}
+body.proj-mode #legend .tx-gm-bar .pro,body.proj-mode #legend .tx-gm-bar .term,body.proj-mode #legend .tx-gm-bar .cds,body.proj-mode #legend .tx-gm-bar .ex,body.proj-mode #legend .tx-gm-bar .in{font-size:16px;line-height:1.25;padding:6px 6px;min-height:48px}
+body.proj-mode #legend .tx-gm-bar .pro small{font-size:13px}
+body.proj-mode #legend .tx-gm-note{font-size:18px;line-height:1.45;margin-top:6px}
+body.proj-mode #legend .tx-gm-strand-bar{font-size:17px;min-height:40px;padding:6px 10px;margin:0 0 5px}
+body.phone.proj-mode #legend.lg-gene{width:min(100vw - 16px,560px)}
 
 /* —— 投影放大（默认关，不改变平板字号；仅 body.proj-mode 生效） —— */
 #btnProj{font-weight:800}
