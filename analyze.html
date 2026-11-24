@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<!-- build 20261124-t287 -->
+<!-- build 20261124-t294 -->
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
@@ -1587,6 +1587,22 @@ body.proj-mode .az-opt-line{font-size:20px;line-height:1.5}
 body.proj-mode #think .th-design-fb li,body.proj-mode #think .th-photo-blanks li,body.proj-mode #think .th-fb-ans,body.proj-mode #think .th-fb-ocr,body.proj-mode #think .th-fb-cmt,body.proj-mode #think .th-fb-note{font-size:22px;line-height:1.45}
 body.proj-mode #think .th-design-score{font-size:22px}
 body.proj-mode #think .th-design-score b{font-size:30px}
+#think .th-inline-blank.is-ok,#think .th-design-blank.is-ok{border-bottom-color:#1f7a43;background:#f3fbf6;color:#187a3a}
+#think .th-inline-blank.is-bad,#think .th-design-blank.is-bad{border-bottom-color:#b42318;background:#fdf6f5;color:#8a1f16}
+#think .th-design-eval-h,#think .th-design-official-h{margin:0 0 6px;font-size:18px;font-weight:800;color:#16325c}
+#think .th-design-eval{margin:0 0 8px;font-size:17px;line-height:1.55}
+#think .th-design-official{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#fff;border:1.5px solid #c5d2e4}
+#think .th-design-official-h2{margin:10px 0 6px;font-size:16px;font-weight:800;color:#16325c}
+#think .th-design-official-p{margin:0 0 6px;font-size:16px;line-height:1.55}
+#think .th-design-official-table{display:flex;flex-direction:column;gap:8px}
+#think .th-off-row{display:flex;gap:10px;align-items:flex-start}
+#think .th-off-k{flex:0 0 7.2em;font-weight:800;color:#16325c;font-size:16px;line-height:1.5}
+#think .th-off-v{flex:1;font-size:16px;line-height:1.55}
+#think.exam-full .th-design-eval-h,#think.exam-full .th-design-official-h{font-size:20px}
+#think.exam-full .th-design-eval,#think.exam-full .th-design-official-p,#think.exam-full .th-off-k,#think.exam-full .th-off-v,#think.exam-full .th-design-official-h2{font-size:18px;line-height:1.55}
+body.proj-mode #think .th-design-eval-h,body.proj-mode #think .th-design-official-h{font-size:26px}
+body.proj-mode #think .th-design-eval,body.proj-mode #think .th-design-official-p,body.proj-mode #think .th-off-k,body.proj-mode #think .th-off-v,body.proj-mode #think .th-design-official-h2{font-size:22px;line-height:1.5}
+body.proj-mode #think .th-off-k{flex-basis:8.2em}
 </style>
 </head>
 <body class="analyze-page">
@@ -1790,7 +1806,7 @@ body.proj-mode #think .th-design-score b{font-size:30px}
       ${F("sec-func-ph","本段题目\u2460 溶酶体功能与 pH",J({n:Et.length,ok:C.ok,bad:Math.max(0,C.mcqRows.length+C.fillRows.filter(l=>l.correct!=null).length-C.ok)}),`<p class="az-lead">本段题目\u2460已改为选择题（lyso/function-ph，正确答案 A）。新提交会统计各选项人数和比例（分母为已交人数）。此前开放作答仍保留原文，不丢弃。</p>${zt||'<p class="az-empty">还没有学生提交</p>'}`)}
       ${F("sec-tmem","本段题目\u2461 TMEM175 与溶酶体功能",J({n:M.length,ok:y.ok,bad:Math.max(0,M.length-y.ok)}),`<p class="az-lead">本段题目\u2461已改为选择题（lyso/tmem-function，正确答案 B）。新提交会统计各选项人数和比例（分母为已交人数）。此前支架填空仍保留原文，不丢弃。</p>${E||'<p class="az-empty">还没有学生提交</p>'}`)}
       ${F("sec-synuclein","本段题目\u2462 α-突触核蛋白的清理",J({n:Kt.length,ok:X.ok,bad:Math.max(0,Kt.length-X.ok)}),`<p class="az-lead">本段题目\u2462已改为选择题（lyso/synuclein-clear，正确答案 A）。新提交会统计各选项人数和比例（分母为已交人数）。此前填空仍保留原文，不丢弃。</p>${Fn||'<p class="az-empty">还没有学生提交</p>'}`)}
-      ${F("sec-design","实验设计作答原文",J({n:k.length}),`<p class="az-lead">动画中「实验设计」题（lyso/design）与学案顺序一致：第（1）题「取________的细胞随机分为三组」，第（2）题填表（缺失组、恢复组的目的）。三空字段未改，较早提交仍可对照。参考要点：取材为功能正常的同类细胞；缺失组为敲除 / 抑制 / 功能缺失的 TMEM175 细胞；恢复组目的是回补以排除其他变量。因变量「溶酶体的 pH」已在表中给出。</p>${I}`)}
+      ${F("sec-design","实验设计作答原文",J({n:k.length}),`<p class="az-lead">动画中「实验设计」题（lyso/design）与学案顺序一致：第（1）题「取________的细胞随机分为三组」，第（2）题填表（缺失组、恢复组的目的）。三空字段未改，较早提交仍可对照。参考答案（学案）：（1）取「生理状况相同」的细胞随机分为三组进行实验。（2）自变量：正常组为保持 TMEM175 功能的细胞；缺失组为敲除 TMEM175 基因的细胞；恢复组为功能缺失后再加入正常 TMEM175，其他条件相同且适宜。因变量：溶酶体内 pH。恢复组的目的：说明 pH 下降由 TMEM175 功能缺失引起，而非敲除操作本身的损伤。</p>${I}`)}
       ${F("sec-think","课堂「先想一想」正确率","",`<div class="az-scroll"><table class="az-table">
           <thead><tr><th>环节</th><th>题目</th><th>作答</th><th>正确率</th></tr></thead>
           <tbody>${j}</tbody>
